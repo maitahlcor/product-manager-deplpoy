@@ -1,0 +1,16 @@
+.header {
+    background-color: #080957;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 10px 30px;
+}
+
+.header > a {
+    color: white;
+}
+
+.header__logo {
+    height: 100%;
+}
