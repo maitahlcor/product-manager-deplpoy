@@ -61,20 +61,40 @@
 td {
   border-top: 1px solid rgb(195, 195, 195);
 }
-
-td button {
+.Product__list__button--edit {
+  color: rgb(10, 10, 10);
+  font-size: 12px;
+  margin: 5px;
+  padding: 2px 6px;
+  border: 1px solid rgb(22, 1, 36);
+}
+/*td button {
   color: teal;
   font-size: 12px;
   margin: 5px;
   padding: 2px 6px;
   border: 1px solid teal;
+}*/
+.Product__list__button--delete {
+  color: rgb(228, 18, 46);
+  font-size: 12px;
+  margin: 5px;
+  padding: 2px 6px;
+  border: 1px solid rgb(216, 10, 10);
 }
-
-td button:hover {
+/*td button:hover {
   background-color: teal;
   color: white;
-}
+}*/
 
+.Product__list__button--delete:hover {
+  background-color: rgb(226, 12, 29);
+  color: white;
+}
+.Product__list__button--edit:hover {
+  background-color: rgb(10, 10, 10);
+  color: white;
+}
 @media (min-width: 376px) {
   .container__title {
     font-size: 20px;
@@ -84,15 +104,15 @@ td button:hover {
     font-size: 16px;
     padding-left: 12px;
   }
-  .movie__list__item--year {
+  .movie__list__item--color {
     font-size: 16px;
     padding-left: 0;
   }
-  .movie__list__item--genre {
+  .movie__list__item--category {
     font-size: 16px;
     padding-left: 0;
   }
-  .movie__list__item--rating {
+  .movie__list__item--pirce {
     font-size: 16px;
   }
   td button {

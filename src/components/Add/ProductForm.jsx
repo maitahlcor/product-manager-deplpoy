@@ -13,7 +13,7 @@ function AddProduct({ onAddProduct, Products }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    try {
+    /*try {
       const options = {
         method: "POST",
         headers: {
@@ -29,7 +29,7 @@ function AddProduct({ onAddProduct, Products }) {
       setProduct(defaultProduct);
     } catch (error) {
       console.log("error");
-    }
+    }*/
 
     function idAssignment() {
       const lastProduct = Products[Products.length - 1];
@@ -78,7 +78,7 @@ function AddProduct({ onAddProduct, Products }) {
           <div className="add-form__column">
             <label className="add-form__label">Color</label>
             <input
-              type="number"
+              type="text"
               name="color"
               className="add-form__input"
               placeholder="Add Product Color"

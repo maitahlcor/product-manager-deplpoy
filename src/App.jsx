@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import AddProduct from "./Components/Add/ProductForm";
 import ProductList from "./Components/ProductList/ProductList";
-//import { products as productList } from "./assets/data";
+import { products as data } from "./assets/data";
 import Header from "./Components/Header/Header";
 import EditProduct from "./Components/EditProduct/EditProduct";
 
@@ -31,11 +31,11 @@ function App() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const url = `${"https://product-manager-server.onrender.com"}/api/Products`;
-      console.log(url);
+      //const url = `${"https://product-manager-server.onrender.com"}/api/Products`;
+      //console.log(url);
       try {
-        const response = await fetch(url);
-        const data = await response.json();
+        //const response = await fetch(url);
+        //const data = await response.json();
         setProducts(data);
       } catch (error) {
         console.log(error);

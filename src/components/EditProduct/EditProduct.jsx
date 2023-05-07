@@ -7,7 +7,7 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
   const handleUpdate = async (event) => {
     event.preventDefault();
 
-    try {
+   /* try {
       const options = {
         method: "PATCH",
         headers: {
@@ -23,7 +23,7 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
       console.log(data);
     } catch (error) {
       console.log(error);
-    }
+    }*/
 
     //AQUI DEBO HACER QUE SE EDITE Y UPDATEE EL SELECCIONADO
     Products.map((Product) => {
@@ -66,12 +66,12 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
           <div className="add-form__column">
           <label className="add-form__label">Color</label>
             <input
-              type="number"
+              type="text"
               name="color"
               className="add-form__input"
               placeholder="Add Product Color"
               onChange={handleChange}
-              value={editedProduct.year}
+              value={editedProduct.color}
               min="1895"
               max="2023"
             />
@@ -84,7 +84,7 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
               className="add-form__input"
               placeholder="Add Category"
               onChange={handleChange}
-              value={editedProduct.genre}
+              value={editedProduct.category}
             />
           </div>
           <div className="add-form__column">
@@ -94,7 +94,7 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
               name="price"
               placeholder='Enter price value'
               className="add-form__input"
-              value={editedProduct.rating}
+              value={editedProduct.price}
               onChange={handleChange}
             />
              
