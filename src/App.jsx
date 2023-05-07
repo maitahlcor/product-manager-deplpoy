@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import AddProduct from './Components/Add';
+import AddProduct from './Components/ProductForm';
 import ProductList from './Components/ProductList/';
 import { products as data } from './assets/data';
 import Header from './Components/Header/Header';
