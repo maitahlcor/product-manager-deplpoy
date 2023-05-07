@@ -58,15 +58,20 @@ option {
 }
 
 .add-form__button {
-  border: 1px solid rgb(134, 174, 226);;
-  color: rgb(134, 174, 226);;
+  border: 1px solid rgb(9, 103, 226);;
+  color: rgb(16, 109, 231);;
   margin-top: 10px;
   margin-left: 120px;
   font-weight: bold;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .add-form__button:hover {
-  background-color: rgb(134, 174, 226);;
+  background-color: rgb(20, 111, 231);
   color: white;
 }
 

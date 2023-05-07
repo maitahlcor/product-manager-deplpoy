@@ -8,29 +8,39 @@ h1 {
 }
 
 .update__button {
-  border: 1px solid rgb(134, 174, 226);
-  color: rgb(134, 174, 226);;
+  border: 1px solid rgb(20, 111, 231);
+  color:rgb(20, 111, 231);
   margin-top: 15px;
   margin-left: 70px;
   font-weight: bold;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .update__button:hover {
-  background-color: rgb(134, 174, 226);;
+  background-color: rgb(20, 111, 231);
   color: white;
 }
 
 .exit__button {
-  border: 1px solid rgb(134, 174, 226);;
-  color: rgb(134, 174, 226);;
+  border: 1px solid rgb(20, 111, 231);
+  color: rgb(20, 111, 231);
   margin-left: 10px;
   font-weight: bold;
   height: 35px;
   margin-top: 15px;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .exit__button:hover {
-  background-color: rgb(134, 174, 226);;
+  background-color: rgb(20, 111, 231);
   color: white;
 }
 
