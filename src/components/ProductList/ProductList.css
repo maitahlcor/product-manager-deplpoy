@@ -1,54 +1,103 @@
-
-
-.product-list
-{
-    margin: 40px 10px;
+.list__container {
+  box-shadow: 5px 5px 25px 0px rgb(58, 141, 218);
+  border-radius: 20px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  border: 1px solid #090979;
 }
 
-.background-list
-{
-    background-color:rgb(235, 233, 233);
-    padding: 2px;
-    border-radius: 5px;
+.list__container__test {
+  background-color: #090979;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px 16px 0 0px;
 }
 
-.product-list span
-{
-    font-size: 9px;
+.list__container__title {
+  color: white;
+  font-size: 30px;
+  margin: 5px 0px 5px 20px;
+  align-self: flex-start;
 }
 
-.detail-type1
-{
-    font-weight: bold;
+.movie__list {
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  border-collapse: collapse;
 }
 
-.product-list__main-title
-{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 30px auto;
+.movie__list__titles {
+  font-size: 20px;
+  font-weight: bolder;
+  color: white;
+  background-color: #1C77C3;
+}
+.movie__list__item--name {
+  text-align: left;
+  padding-left: 4px;
+  font-weight: bolder;
+  font-size: 14px;
+}
+.movie__list__item--year {
+  color: gray;
+  font-size: 14px;
+  padding-left: 30px;
+}
+.movie__list__item--genre {
+  color: gray;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.movie__list__item--rating {
+  color: gray;
+  font-size: 14px;
 }
 
-.product-list__titles
-{
-    display: grid;
-    grid-template-columns: 40% 15% 20% 15% 10%;
-    margin: 10px auto;
+td {
+  border-top: 1px solid rgb(195, 195, 195);
 }
 
-.product-list__item
-{
-    display: grid;
-    grid-template-columns: 40% 15% 20% 15% 10%;
-    margin: 5px 0px;
-    padding: 5px 2px;
-    background-color: white;
-    border-radius: 5px;    
+td button {
+  color: teal;
+  font-size: 12px;
+  margin: 5px;
+  padding: 2px 6px;
+  border: 1px solid teal;
 }
 
-.icons
-{
-    margin: auto 3px;
+td button:hover {
+  background-color: teal;
+  color: white;
 }
 
+@media (min-width: 376px) {
+  .container__title {
+    font-size: 20px;
+  }
+  
+  .movie__list__item--name {
+    font-size: 16px;
+    padding-left: 12px;
+  }
+  .movie__list__item--year {
+    font-size: 16px;
+    padding-left: 0;
+  }
+  .movie__list__item--genre {
+    font-size: 16px;
+    padding-left: 0;
+  }
+  .movie__list__item--rating {
+    font-size: 16px;
+  }
+  td button {
+    font-size: 15px;
+    margin: 5px;
+    padding: 2px 6px;
+  }
+}

@@ -1,0 +1,27 @@
+#root {
+  width: 365px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.movieContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 376px) {
+  #root {
+    width: 100%;
+  }
+}
+
+@media (min-width: 860px) {
+  .movieContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    align-items: start;
+  }
+}
+

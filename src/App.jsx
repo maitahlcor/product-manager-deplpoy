@@ -1,58 +1,77 @@
-import Header from './components/Header/Header'
-import ProductList from './components/ProductList/ProductList'
-import ProductForm from './components/ProductForm'
-import ProductEditForm from './components/ProductEditForm'
-import { products as productList } from "./data"
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
+import AddProduct from "./Components/Add/ProductForm";
+import ProductList from "./Components/ProductList/ProductList";
+//import { products as productList } from "./assets/data";
+import Header from "./Components/Header/Header";
+import EditProduct from "./Components/EditProduct/EditProduct";
 
 function App() {
+  const [Products, setProducts] = useState();
+  const [selectedProduct, setSelectedProduct] = useState({});
 
-  const [products, setProducts] = useState(productList)
-  const [product, setProduct] = useState({})
-  const [isSelected, setIsSelected] = useState();
+  const [isEditing, setIsEditing] = useState(false);
+
   const handleAddProduct = (newProduct) => {
-    newProduct.id = new Date().getTime();
-    console.log(newProduct)
-    setProducts([...products, newProduct]);
-  }
-
-  const onDeleteProduct = (idDelete) => {
-    const productsFilter = products.filter((product) => product.id !== idDelete);
-    setProducts(productsFilter);
-  }
-   const onSelectProduct = (productEdit) => {
-  
-    setProduct(productEdit);
-  }
-
-  const onEditProduct = (myProduct) => {
-    const productIndex = products.findIndex((product) => product.id === myProduct.id);
-    const newProducts = [...products];
-
-    newProducts[productIndex] = myProduct;    
-    setProducts(newProducts);
+    setProducts([...Products, newProduct]);
   };
-  let showForm = true;
-  const handleSelect = (selection) => {
-    setIsSelected(selection);
-  }
-  const  showedContent = isSelected ? <ProductEditForm productEdit={product} onEditProduct={onEditProduct} />:<ProductForm onAddContac={handleAddProduct}  />
 
-  //showForm ? <ProductForm onAddContac={handleAddProduct} /> 
-  //: <ProductEditForm productEdit={product} onEditProduct={onEditProduct} />;
-  // <ProductForm onAddContac={handleAddProduct}  />
-  //<ProductEditForm productEdit={product} onEditProduct={onEditProduct} />
+  const handleSelect = (Product) => {
+    setSelectedProduct(Object.assign({}, Product));
+    setIsEditing(true);
+  };
+
+  const handleEditProduct = () => {
+    setProducts([...Products]);
+  };
+
+  const deleteProduct = (newArr) => {
+    setProducts(newArr);
+  };
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const url = `${"https://product-manager-server.onrender.com"}/api/Products`;
+      console.log(url);
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <>
       <Header />
-      <div className='main-container'>
-        <ProductList products={products} onDeleteProduct={onDeleteProduct} onSelectProduct ={ onSelectProduct} onSelectForm = {handleSelect}/>
-        {showedContent}
+      <div className="ProductContainer">
+        <ProductList
+          ProductList={Products}
+          onSelectedProduct={handleSelect}
+          onDeleteProduct={deleteProduct}
+        />
+        {isEditing ? (
+          <EditProduct
+            onEditProduct={handleEditProduct}
+            selectedProduct={selectedProduct}
+            isEditing={isEditing}
+            Products={Products}
+            setIsEditing={setIsEditing}
+          />
+        ) : (
+          <AddProduct
+            onAddProduct={handleAddProduct}
+            selectedProduct={selectedProduct}
+            isEditing={isEditing}
+            Products={Products}
+          />
+        )}
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,59 +1,80 @@
-import './ProductList.css'
-import { FaTrash } from "react-icons/fa";
-import { FaEdit } from "react-icons/fa";
-import { useState } from 'react';
+import "./ProductList.css";
+import { useState } from "react";
 
-function ProductList({ products, onDeleteProduct, onSelectProduct, setIsSelected}) {
- 
-  const handleClick = (buttomValue) => {
-    setIsSelected(buttomValue);
-  }
-  const handleDelete = ( productId) => {
-    onDeleteProduct(productId);
-  }
+function ProductList({ ProductList = [], onSelectedProduct, onDeleteProduct }) {
+  const [updatedProducts, setUpdatedProducts] = useState(ProductList);
 
-  const handleEdit = ( product,buttomValue ) => {
-    //console.log(product);
-    setIsSelected(buttomValue);
-    onSelectProduct(product)
-  }
+  const handleDelete = async (id) => {
+    try {
+      const options = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const url = `${import.meta.env.VITE_BASE_URL}/api/Products/${id}`;
+
+      const response = await fetch(url, options);
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+
+    ProductList.map((Product) => {
+      if (Product.id === id) {
+        const newProducts = ProductList.filter((Product) => Product.id !== id);
+        onDeleteProduct(newProducts);
+      }
+    });
+  };
+
+  const handleEdit = (Product) => {
+    const editProduct = Product;
+    onSelectedProduct(editProduct);
+  };
 
   return (
-    <div className='product-list'>
-
-      <div className='product-list__main-title'>
-        <h2 className="title">Product List</h2>
-        <button className="button" onClick={ ()=> handleClick(true)}>Add</button>
+    <div className="list__container">
+      <div className="list__container__test">
+        <h2 className="list__container__title">Product list</h2>
       </div>
+      <table className="Product__list">
+        <thead>
+          <tr className="Product__list__titles">
+            <th>Product</th>
+            <th>Color</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
 
-      <div className="background-list">
-        <div className="product-list__titles">
-          <span className="detail-type1">PRODUCT NAME</span>
-          <span className="detail-type1">COLOR</span>
-          <span className="detail-type1">CATEGORY</span>
-          <span className="detail-type1">PRICE</span>
-        </div>
+        <tbody>
+          {ProductList.map((Product) => (
+            <tr key={Product.id} className="Product__list__item">
+              <td className="Product__list__item--name">{Product.name}</td>
+              <td className="Product__list__item--year">{Product.year}</td>
+              <td className="Product__list__item--genre">{Product.genre}</td>
+              <td className="Product__list__item--rating">{Product.rating}</td>
 
-        {products.map((product) => (
-          <div key={product.id} className="product-list__item" >
-            <div className="detail-type1"><span>{product.name}</span></div>
-            <div className="detail-type2"><span>{product.color}</span></div>
-            <div className="detail-type2"><span>{product.category}</span></div>
-            <div className="detail-type2"><span>{product.price}</span></div>
-            <div className="detail-type3">
-              <span className='icons' onClick={() => handleEdit( product, false)} >
-                <FaEdit />
-              </span>
-              <span className='icons' onClick={() => handleDelete( product.id)}>
-                <FaTrash />
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
+              <td>
+                <button onClick={() => handleEdit(Product)}>edit</button>
+                <button
+                  onClick={() => {
+                    handleDelete(Product.id);
+                  }}
+                >
+                  delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-  )
+  );
 }
 
 export default ProductList;
-

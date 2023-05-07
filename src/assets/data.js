@@ -13,4 +13,4 @@ export const products = [
     category: 'Clothing',
     price: '$20.00',
   }
-];
+]
