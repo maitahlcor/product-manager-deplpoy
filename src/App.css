@@ -4,7 +4,7 @@
   padding: 2rem;
 }
 
-.movieContainer {
+.ProductContainer {
   display: grid;
   grid-template-columns: 1fr;
   align-items: start;
@@ -17,7 +17,7 @@
 }
 
 @media (min-width: 860px) {
-  .movieContainer {
+  .ProductContainer {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 15px;
