@@ -7,7 +7,7 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
   const handleUpdate = async (event) => {
     event.preventDefault();
 
-   /* try {
+    try {
       const options = {
         method: 'PATCH',
         headers: {
@@ -16,14 +16,14 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
         body: JSON.stringify(editedProduct),
       };
 
-      //const url = `${import.meta.env.VITE_BASE_URL}/api/Products/:id`;
+      const url = `${import.meta.env.VITE_BASE_URL}/api/products/:id`;
 
       const response = await fetch(url, options);
       const data = await response.json();
       console.log(data);
     } catch (error) {
       console.log(error);
-    }*/
+    }
 
     //AQUI DEBO HACER QUE SE EDITE Y UPDATEE EL SELECCIONADO
     Products.map((Product) => {
@@ -31,7 +31,7 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
         setEditedProduct(Object.assign(Product, editedProduct));
       }
     });
-    // console.log(editedProduct)
+     console.log(editedProduct)
     onEditProduct(editedProduct);
   };
 

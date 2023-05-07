@@ -12,7 +12,7 @@ function Header() {
             className="header__left__container__logo"
           />
         </div>
-        <h1 className="header__left__title">Product List</h1>
+        <h1 className="header__left__title">Product Magager</h1>
       </div>
       <div className="header__right">
         <h3>About Us</h3>

@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import AddProduct from './components/ProductForm';
 import ProductList from './components/ProductList/';
-import { products as data } from './assets/data';
+//import { products as data } from './assets/data';
 import Header from './components/Header/Header';
 import EditProduct from './components/EditProduct';
+//import'../.env.local'
+//import { dotenv}  from 'dotenv/core';
+//require('dotenv').config() 
 
 function App() {
   const [Products, setProducts] = useState();
@@ -31,11 +34,13 @@ function App() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      //const url = `${'https://product-manager-server.onrender.com'}/api/Products`;
-      //console.log(url);
+      const url = `${import.meta.env.VITE_BASE_URL}/api/products`;
+      //console.log(import.meta.env.VITE_SECRET_1) 
+      console.log(url);
       try {
-        //const response = await fetch(url);
-        //const data = await response.json();
+        const response = await fetch(url);
+        const data = await response.json();
+        //console.log(data2)
         setProducts(data);
       } catch (error) {
         console.log(error);

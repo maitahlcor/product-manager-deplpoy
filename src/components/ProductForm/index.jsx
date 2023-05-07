@@ -13,7 +13,7 @@ function AddProduct({ onAddProduct, Products }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    /*try {
+    try {
       const options = {
         method: 'POST',
         headers: {
@@ -21,7 +21,7 @@ function AddProduct({ onAddProduct, Products }) {
         },
         body: JSON.stringify(Product),
       };
-      const url = `${import.meta.env.VITE_BASE_URL}/api/Products`;
+      const url = `${import.meta.env.VITE_BASE_URL}/api/products`;
 
       const response = await fetch(url, options);
       const data = await response.json();
@@ -29,9 +29,9 @@ function AddProduct({ onAddProduct, Products }) {
       setProduct(defaultProduct);
     } catch (error) {
       console.log('error');
-    }*/
+    }
 
-    function idAssignment() {
+    function idNumber() {
       const lastProduct = Products[Products.length - 1];
       const lastId = lastProduct.id;
       return lastId + 1;
@@ -39,7 +39,7 @@ function AddProduct({ onAddProduct, Products }) {
 
     const newProduct = {
       ...Product,
-      id: idAssignment(),
+      id: idNumber(),
     };
     onAddProduct(newProduct);
 

@@ -14,7 +14,7 @@ function ProductList({ ProductList = [], onSelectedProduct, onDeleteProduct }) {
         },
       };
 
-      const url = `${import.meta.env.VITE_BASE_URL}/api/Products/${id}`;
+      const url = `${import.meta.env.VITE_BASE_URL}/api/products/${id}`;
 
       const response = await fetch(url, options);
       const data = await response.json();
