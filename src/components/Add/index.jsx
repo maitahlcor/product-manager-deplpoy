@@ -1,11 +1,11 @@
-import { useState } from "react";
-import "./ProductForm.css";
+import { useState } from 'react';
+import './ProductForm.css';
 
 const defaultProduct = {
-  name: "",
-  color: "",
-  category: "",
-  price: "",
+  name: '',
+  color: '',
+  category: '',
+  price: '',
 };
 function AddProduct({ onAddProduct, Products }) {
   const [Product, setProduct] = useState(defaultProduct);
@@ -15,9 +15,9 @@ function AddProduct({ onAddProduct, Products }) {
 
     /*try {
       const options = {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(Product),
       };
@@ -28,7 +28,7 @@ function AddProduct({ onAddProduct, Products }) {
       console.log(data);
       setProduct(defaultProduct);
     } catch (error) {
-      console.log("error");
+      console.log('error');
     }*/
 
     function idAssignment() {
@@ -57,57 +57,57 @@ function AddProduct({ onAddProduct, Products }) {
   };
 
   return (
-    <div className="container">
-      <div className="container__title">
-        <h2 className="container__title__text">Add New Product</h2>
+    <div className='container'>
+      <div className='container__title'>
+        <h2 className='container__title__text'>Add New Product</h2>
       </div>
-      <form className="add-form" onSubmit={handleSubmit}>
+      <form className='add-form' onSubmit={handleSubmit}>
         <div>
-          <div className="add-form__column">
-            <label className="add-form__label">Product</label>
+          <div className='add-form__column'>
+            <label className='add-form__label'>Product</label>
             <input
-              type="text"
-              name="name"
-              placeholder="Product name"
-              className="add-form__input"
+              type='text'
+              name='name'
+              placeholder='Product name'
+              className='add-form__input'
               required
               onChange={handleChange}
               value={Product.name}
             />
           </div>
-          <div className="add-form__column">
-            <label className="add-form__label">Color</label>
+          <div className='add-form__column'>
+            <label className='add-form__label'>Color</label>
             <input
-              type="text"
-              name="color"
-              className="add-form__input"
-              placeholder="Add Product Color"
+              type='text'
+              name='color'
+              className='add-form__input'
+              placeholder='Add Product Color'
               onChange={handleChange}
-              min="1895"
-              max="2023"
+              min='1895'
+              max='2023'
               value={Product.color}
               required
             />
           </div>
-          <div className="add-form__column">
-            <label className="add-form__label">Category</label>
+          <div className='add-form__column'>
+            <label className='add-form__label'>Category</label>
             <input
-              type="text"
-              name="category"
-              className="add-form__input"
-              placeholder="Add Category"
+              type='text'
+              name='category'
+              className='add-form__input'
+              placeholder='Add Category'
               onChange={handleChange}
               value={Product.category}
               required
             />
           </div>
-          <div className="add-form__column">
-            <label className="add-form__label">Price</label>
+          <div className='add-form__column'>
+            <label className='add-form__label'>Price</label>
               <input
-              type="number"
-              name="price"
+              type='number'
+              name='price'
               placeholder='Enter price value'
-              className="add-form__input"
+              className='add-form__input'
               value={Product.price}
               onChange={handleChange}
               required
@@ -116,7 +116,7 @@ function AddProduct({ onAddProduct, Products }) {
              
           </div>
         </div>
-        <button type="submit" className="add-form__button">
+        <button type='submit' className='add-form__button'>
           Add
         </button>
       </form>

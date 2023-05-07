@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import AddProduct from "./Components/Add";
-import ProductList from "./Components/ProductList/";
-import { products as data } from "./assets/data";
-import Header from "./Components/Header/Header";
-import EditProduct from "./Components/EditProduct";
+import { useState, useEffect } from 'react';
+import './App.css';
+import AddProduct from './Components/Add';
+import ProductList from './Components/ProductList/';
+import { products as data } from './assets/data';
+import Header from './Components/Header/Header';
+import EditProduct from './Components/EditProduct';
 
 function App() {
   const [Products, setProducts] = useState();
@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      //const url = `${"https://product-manager-server.onrender.com"}/api/Products`;
+      //const url = `${'https://product-manager-server.onrender.com'}/api/Products`;
       //console.log(url);
       try {
         //const response = await fetch(url);
@@ -47,7 +47,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="ProductContainer">
+      <div className='ProductContainer'>
         <ProductList
           ProductList={Products}
           onSelectedProduct={handleSelect}

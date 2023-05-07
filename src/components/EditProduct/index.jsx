@@ -1,5 +1,5 @@
-import { useState } from "react";
-import "./EditProduct.css";
+import { useState } from 'react';
+import './EditProduct.css';
 
 function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) {
   const [editedProduct, setEditedProduct] = useState(selectedProduct);
@@ -9,9 +9,9 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
 
    /* try {
       const options = {
-        method: "PATCH",
+        method: 'PATCH',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(editedProduct),
       };
@@ -45,55 +45,55 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
   };
 
   return (
-    <div className="container">
-      <div className="container__title">
-        <h2 className="container__title__text">Edit Product</h2>
+    <div className='container'>
+      <div className='container__title'>
+        <h2 className='container__title__text'>Edit Product</h2>
       </div>
-      <form className="add-form" onSubmit={handleUpdate}>
+      <form className='add-form' onSubmit={handleUpdate}>
         <div>
-          <div className="add-form__column">
-            <label className="add-form__label">Product</label>
+          <div className='add-form__column'>
+            <label className='add-form__label'>Product</label>
             <input
-              type="text"
-              name="name"
-              placeholder="Product name"
-              className="add-form__input"
+              type='text'
+              name='name'
+              placeholder='Product name'
+              className='add-form__input'
               required
               onChange={handleChange}
               value={editedProduct.name}
             />
           </div>
-          <div className="add-form__column">
-          <label className="add-form__label">Color</label>
+          <div className='add-form__column'>
+          <label className='add-form__label'>Color</label>
             <input
-              type="text"
-              name="color"
-              className="add-form__input"
-              placeholder="Add Product Color"
+              type='text'
+              name='color'
+              className='add-form__input'
+              placeholder='Add Product Color'
               onChange={handleChange}
               value={editedProduct.color}
-              min="1895"
-              max="2023"
+              min='1895'
+              max='2023'
             />
           </div>
-          <div className="add-form__column">
-          <label className="add-form__label">Category</label>
+          <div className='add-form__column'>
+          <label className='add-form__label'>Category</label>
             <input
-              type="text"
-              name="category"
-              className="add-form__input"
-              placeholder="Add Category"
+              type='text'
+              name='category'
+              className='add-form__input'
+              placeholder='Add Category'
               onChange={handleChange}
               value={editedProduct.category}
             />
           </div>
-          <div className="add-form__column">
-            <label className="add-form__label">Price</label>
+          <div className='add-form__column'>
+            <label className='add-form__label'>Price</label>
               <input
-              type="number"
-              name="price"
+              type='number'
+              name='price'
               placeholder='Enter price value'
-              className="add-form__input"
+              className='add-form__input'
               value={editedProduct.price}
               onChange={handleChange}
             />
@@ -101,11 +101,11 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
           
           </div>
         </div>
-        <div className="buttons">
-          <button type="submit" className="update__button">
+        <div className='buttons'>
+          <button type='submit' className='update__button'>
             Update
           </button>
-          <button onClick={() => setIsEditing(false)} className="exit__button">
+          <button onClick={() => setIsEditing(false)} className='exit__button'>
             Exit
           </button>
         </div>
