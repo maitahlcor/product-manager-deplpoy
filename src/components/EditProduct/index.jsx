@@ -90,7 +90,7 @@ function AddProduct({ onEditProduct, selectedProduct, Products, setIsEditing }) 
           <div className='add-form__column'>
             <label className='add-form__label'>Price</label>
               <input
-              type='number'
+              type='text'
               name='price'
               placeholder='Enter price value'
               className='add-form__input'

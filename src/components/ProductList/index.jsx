@@ -58,7 +58,7 @@ function ProductList({ ProductList = [], onSelectedProduct, onDeleteProduct }) {
               <td className='Product__list__item--name'>{Product.name}</td>
               <td className='Product__list__item--color'>{Product.color}</td>
               <td className='Product__list__item--category'>{Product.category}</td>
-              <td className='Product__list__item--price'>${Product.price}</td>
+              <td className='Product__list__item--price'>{Product.price}</td>
               <td>
                 <button className= 'Product__list__button--edit' onClick={() => handleEdit(Product)}>
                   <FaEdit />
